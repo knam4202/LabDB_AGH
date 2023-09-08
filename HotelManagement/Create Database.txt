@@ -1,0 +1,301 @@
+- create hotels:
+
+            HotelDAO hotelDAO = new HotelDAO(sessionFactory);
+
+            Hotel hotel1 = new Hotel("Hilton Garden", "Medweckiego 3, 32-083 Krakow", 4);
+            Hotel hotel2 = new Hotel("PURO Kazimierz", "Halicka 14a, 31-036 Krakow", 5);
+            
+            hotelDAO.addHotel(hotel1);
+            hotelDAO.addHotel(hotel2);
+
+- create staffs:
+
+            HotelDAO hotelDAO = new HotelDAO(sessionFactory);
+            StaffDAO staffDAO = new StaffDAO(sessionFactory);
+
+            Hotel hotel1 = hotelDAO.getHotelById(1);
+            Hotel hotel2 = hotelDAO.getHotelById(2);
+
+            Staff staff1 = new Staff("Anna", "Kowalski", LocalDate.of(1985, 5, 15), "Warsaw, Poland", hotel1);
+            Staff staff2 = new Staff("Marek", "Nowak", LocalDate.of(1990, 7, 25), "Krakow, Poland", hotel1);
+            Staff staff3 = new Staff("Ewa", "Dąbrowski", LocalDate.of(1980, 3, 10), "Gdansk, Poland", hotel1);
+            Staff staff4 = new Staff("Tomasz", "Lewandowski", LocalDate.of(1975, 9, 5), "Wroclaw, Poland", hotel2);
+            Staff staff5 = new Staff("Izabela", "Wójcik", LocalDate.of(1988, 11, 20), "Lodz, Poland", hotel2);
+            Staff staff6 = new Staff("Maria", "Wozniak", LocalDate.of(1992, 8, 18), "Poznan, Poland", hotel1);
+            Staff staff7 = new Staff("Agata", "Kaminska", LocalDate.of(1987, 4, 7), "Lublin, Poland", hotel1);
+            Staff staff8 = new Staff("Katarzyna", "Jankowska", LocalDate.of(1995, 2, 25), "Szczecin, Poland", hotel1);
+            Staff staff9 = new Staff("Monika", "Kaczmarek", LocalDate.of(1989, 11, 12), "Katowice, Poland", hotel2);
+            Staff staff10 = new Staff("Dorota", "Kowalczyk", LocalDate.of(1991, 6, 30), "Gdynia, Poland", hotel2);
+            Staff staff11 = new Staff("Joanna", "Piotrowska", LocalDate.of(1993, 3, 21), "Krakow, Poland", hotel2);
+            Staff staff12 = new Staff("Alicja", "Zielinska", LocalDate.of(1984, 9, 9), "Warsaw, Poland", hotel1);
+            Staff staff13 = new Staff("Kinga", "Mazur", LocalDate.of(1986, 1, 5), "Wroclaw, Poland", hotel1);
+            Staff staff14 = new Staff("Karolina", "Witkowska", LocalDate.of(1994, 7, 11), "Lodz, Poland", hotel2);
+            Staff staff15 = new Staff("Irena", "Nowicka", LocalDate.of(1983, 12, 3), "Gdansk, Poland", hotel2);
+
+            staffDAO.addStaff(staff1);
+            staffDAO.addStaff(staff2);
+            staffDAO.addStaff(staff3);
+            staffDAO.addStaff(staff4);
+            staffDAO.addStaff(staff5);
+            staffDAO.addStaff(staff6);
+            staffDAO.addStaff(staff7);
+            staffDAO.addStaff(staff8);
+            staffDAO.addStaff(staff9);
+            staffDAO.addStaff(staff10);
+            staffDAO.addStaff(staff11);
+            staffDAO.addStaff(staff12);
+            staffDAO.addStaff(staff13);
+            staffDAO.addStaff(staff14);
+            staffDAO.addStaff(staff15);
+
+- create rooms:
+
+            HotelDAO hotelDAO = new HotelDAO(sessionFactory);
+            RoomDAO roomDAO = new RoomDAO(sessionFactory);
+
+            Hotel hotel1 = hotelDAO.getHotelById(1);
+            Hotel hotel2 = hotelDAO.getHotelById(2);
+
+            List<Room> rooms = new ArrayList<>();
+
+            rooms.add(new Room("101", "single", 100.0, "available", "Standard single room", hotel1));
+            rooms.add(new Room("102", "single", 100.0, "available", "Standard single room", hotel1));
+            rooms.add(new Room("201", "double", 150.0, "available", "Standard double room", hotel1));
+            rooms.add(new Room("202", "double", 150.0, "available", "Standard double room", hotel1));
+            rooms.add(new Room("301", "triple", 200.0, "available", "Standard triple room", hotel1));
+            rooms.add(new Room("302", "triple", 200.0, "available", "Standard triple room", hotel1));
+            rooms.add(new Room("401", "quad", 250.0, "available", "Standard quad room", hotel2));
+            rooms.add(new Room("402", "quad", 250.0, "available", "Standard quad room", hotel2));
+            rooms.add(new Room("501", "double", 150.0, "available", "Deluxe double room", hotel2));
+            rooms.add(new Room("502", "double", 150.0, "available", "Deluxe double room", hotel2));
+            rooms.add(new Room("103", "single", 100.0, "available", "Standard single room", hotel1));
+            rooms.add(new Room("104", "single", 100.0, "available", "Standard single room", hotel1));
+            rooms.add(new Room("203", "double", 150.0, "available", "Standard double room", hotel1));
+            rooms.add(new Room("204", "double", 150.0, "available", "Standard double room", hotel1));
+            rooms.add(new Room("303", "triple", 200.0, "available", "Standard triple room", hotel1));
+            rooms.add(new Room("304", "triple", 200.0, "available", "Standard triple room", hotel1));
+            rooms.add(new Room("403", "quad", 250.0, "available", "Standard quad room", hotel2));
+            rooms.add(new Room("404", "quad", 250.0, "available", "Standard quad room", hotel2));
+            rooms.add(new Room("503", "double", 150.0, "available", "Deluxe double room", hotel2));
+            rooms.add(new Room("504", "double", 150.0, "available", "Deluxe double room", hotel2));
+            rooms.add(new Room("105", "single", 100.0, "available", "Standard single room", hotel1));
+            rooms.add(new Room("205", "double", 150.0, "available", "Standard double room", hotel1));
+            rooms.add(new Room("305", "triple", 200.0, "available", "Standard triple room", hotel1));
+            rooms.add(new Room("405", "quad", 250.0, "available", "Standard quad room", hotel2));
+            rooms.add(new Room("505", "double", 150.0, "available", "Deluxe double room", hotel2));
+
+            for (Room room : rooms) {
+                roomDAO.addRoom(room);
+            }
+            
+- create customers:
+
+            CustomerDAO customerDAO = new CustomerDAO(sessionFactory);
+
+            List<Customer> customers = new ArrayList<>();
+
+            customers.add(new Customer("Anna", "Kowalski", LocalDate.of(1980, 5, 10), "Warsaw, Poland", "anna@example.com"));
+            customers.add(new Customer("Jan", "Nowak", LocalDate.of(1992, 9, 15), "Krakow, Poland", "jan@example.com"));
+            customers.add(new Customer("Ewa", "Wojcik", LocalDate.of(1985, 3, 20), "Gdansk, Poland", "ewa@example.com"));
+            customers.add(new Customer("Marek", "Lis", LocalDate.of(1978, 7, 5), "Poznan, Poland", "marek@example.com"));
+            customers.add(new Customer("Magdalena", "Zajac", LocalDate.of(1990, 11, 8), "Lodz, Poland", "magda@example.com"));
+            customers.add(new Customer("Piotr", "Kaczmarek", LocalDate.of(1982, 2, 28), "Katowice, Poland", "piotr@example.com"));
+            customers.add(new Customer("Alicja", "Grabowska", LocalDate.of(1975, 12, 15), "Wroclaw, Poland", "alicja@example.com"));
+            customers.add(new Customer("Tomasz", "Pawlak", LocalDate.of(1989, 4, 25), "Szczecin, Poland", "tomasz@example.com"));
+            customers.add(new Customer("Monika", "Michalska", LocalDate.of(1987, 6, 30), "Bydgoszcz, Poland", "monika@example.com"));
+            customers.add(new Customer("Krzysztof", "Wrobel", LocalDate.of(1983, 8, 12), "Lublin, Poland", "krzysztof@example.com"));
+            customers.add(new Customer("Joanna", "Dabrowski", LocalDate.of(1976, 10, 18), "Gdynia, Poland", "joanna@example.com"));
+            customers.add(new Customer("Marcin", "Sikora", LocalDate.of(1991, 1, 5), "Sopot, Poland", "marcin@example.com"));
+            customers.add(new Customer("Agnieszka", "Kalinowska", LocalDate.of(1984, 4, 11), "Kielce, Poland", "agnieszka@example.com"));
+            customers.add(new Customer("Andrzej", "Piotrowski", LocalDate.of(1979, 7, 22), "Rzeszow, Poland", "andrzej@example.com"));
+            customers.add(new Customer("Iwona", "Jaworska", LocalDate.of(1993, 3, 3), "Czestochowa, Poland", "iwona@example.com"));
+            customers.add(new Customer("Marta", "Kwiatkowska", LocalDate.of(1995, 6, 12), "Warsaw, Poland", "marta@example.com"));
+            customers.add(new Customer("Kamil", "Pawlik", LocalDate.of(1987, 11, 25), "Krakow, Poland", "kamil@example.com"));
+            customers.add(new Customer("Hanna", "Zielinska", LocalDate.of(1976, 8, 18), "Gdansk, Poland", "hanna@example.com"));
+            customers.add(new Customer("Michal", "Szymanski", LocalDate.of(1990, 3, 3), "Poznan, Poland", "michal@example.com"));
+            customers.add(new Customer("Natalia", "Witkowska", LocalDate.of(1983, 12, 8), "Lodz, Poland", "natalia@example.com"));
+            customers.add(new Customer("Krzysztof", "Kowalczyk", LocalDate.of(1979, 5, 20), "Katowice, Poland", "krzysztof@example.com"));
+            customers.add(new Customer("Elzbieta", "Nowakowska", LocalDate.of(1988, 9, 15), "Wroclaw, Poland", "elzbieta@example.com"));
+            customers.add(new Customer("Pawel", "Zawisza", LocalDate.of(1982, 2, 1), "Szczecin, Poland", "pawel@example.com"));
+            customers.add(new Customer("Katarzyna", "Kaczmarek", LocalDate.of(1991, 7, 10), "Bydgoszcz, Poland", "katarzyna@example.com"));
+            customers.add(new Customer("Rafal", "Zielinski", LocalDate.of(1984, 4, 5), "Lublin, Poland", "rafal@example.com"));
+            customers.add(new Customer("Alicja", "Sikorska", LocalDate.of(1977, 10, 22), "Gdynia, Poland", "alicja@example.com"));
+            customers.add(new Customer("Mateusz", "Nowakowski", LocalDate.of(1992, 1, 30), "Sopot, Poland", "mateusz@example.com"));
+            customers.add(new Customer("Ewa", "Jaworska", LocalDate.of(1981, 7, 3), "Kielce, Poland", "ewa@example.com"));
+            customers.add(new Customer("Bartosz", "Lisowski", LocalDate.of(1978, 5, 15), "Rzeszow, Poland", "bartosz@example.com"));
+            customers.add(new Customer("Anna", "Zalewska", LocalDate.of(1993, 11, 9), "Czestochowa, Poland", "anna@example.com"));
+            customers.add(new Customer("Maria", "Piotrowska", LocalDate.of(1998, 2, 14), "Warsaw, Poland", "maria@example.com"));
+            customers.add(new Customer("Artur", "Zawisza", LocalDate.of(1986, 9, 28), "Krakow, Poland", "artur@example.com"));
+            customers.add(new Customer("Klaudia", "Jankowska", LocalDate.of(1977, 5, 6), "Gdansk, Poland", "klaudia@example.com"));
+            customers.add(new Customer("Tadeusz", "Dabrowski", LocalDate.of(1992, 4, 19), "Poznan, Poland", "tadeusz@example.com"));
+            customers.add(new Customer("Agnieszka", "Szymanska", LocalDate.of(1985, 11, 30), "Lodz, Poland", "agnieszka@example.com"));
+            customers.add(new Customer("Marek", "Kwiatkowski", LocalDate.of(1979, 8, 8), "Katowice, Poland", "marek@example.com"));
+            customers.add(new Customer("Barbara", "Nowak", LocalDate.of(1988, 7, 12), "Wroclaw, Poland", "barbara@example.com"));
+            customers.add(new Customer("Rafal", "Lis", LocalDate.of(1981, 1, 3), "Szczecin, Poland", "rafal@example.com"));
+            customers.add(new Customer("Natalia", "Zielinska", LocalDate.of(1990, 3, 25), "Bydgoszcz, Poland", "natalia@example.com"));
+            customers.add(new Customer("Jacek", "Kaczmarek", LocalDate.of(1976, 6, 10), "Lublin, Poland", "jacek@example.com"));
+            customers.add(new Customer("Katarzyna", "Grabowska", LocalDate.of(1993, 10, 17), "Gdynia, Poland", "katarzyna@example.com"));
+            customers.add(new Customer("Damian", "Pawlak", LocalDate.of(1983, 7, 9), "Sopot, Poland", "damian@example.com"));
+            customers.add(new Customer("Aleksandra", "Michalska", LocalDate.of(1984, 12, 5), "Kielce, Poland", "aleksandra@example.com"));
+            customers.add(new Customer("Grzegorz", "Nowakowski", LocalDate.of(1995, 5, 22), "Rzeszow, Poland", "grzegorz@example.com"));
+            customers.add(new Customer("Karolina", "Kalinowska", LocalDate.of(1978, 6, 15), "Czestochowa, Poland", "karolina@example.com"));
+
+
+            for (Customer customer : customers) {
+                customerDAO.addCustomer(customer);
+            }
+
+- create bookings:
+
+            RoomDAO roomDAO = new RoomDAO(sessionFactory);
+            CustomerDAO customerDAO = new CustomerDAO(sessionFactory);
+            BookingDAO bookingDAO = new BookingDAO(sessionFactory);
+            List<Booking> bookings = new ArrayList<>();
+
+            LocalDate checkIn1 = LocalDate.of(2023, 6, 4);
+            LocalDate checkOut1 = LocalDate.of(2023, 6, 8);
+            Room room1 = roomDAO.getRoomById(7);
+            Customer customer1 = customerDAO.getCustomerById(23);
+            double price1 = (int) ChronoUnit.DAYS.between(checkIn1, checkOut1) * room1.getPricePerNight();
+            Booking booking1 = new Booking(checkIn1, checkOut1, price1, room1, customer1);
+            bookings.add(booking1);
+
+            LocalDate checkIn2 = LocalDate.of(2023, 6, 2);
+            LocalDate checkOut2 = LocalDate.of(2023, 6, 7);
+            Room room2 = roomDAO.getRoomById(12);
+            Customer customer2 = customerDAO.getCustomerById(37);
+            double price2 = (int) ChronoUnit.DAYS.between(checkIn2, checkOut2) * room2.getPricePerNight();
+            Booking booking2 = new Booking(checkIn2, checkOut2, price2, room2, customer2);
+            bookings.add(booking2);
+
+            LocalDate checkIn3 = LocalDate.of(2023, 6, 10);
+            LocalDate checkOut3 = LocalDate.of(2023, 6, 13);
+            Room room3 = roomDAO.getRoomById(15);
+            Customer customer3 = customerDAO.getCustomerById(40);
+            double price3 = (int) ChronoUnit.DAYS.between(checkIn3, checkOut3) * room3.getPricePerNight();
+            Booking booking3 = new Booking(checkIn3, checkOut3, price3, room3, customer3);
+            bookings.add(booking3);
+
+            LocalDate checkIn4 = LocalDate.of(2023, 6, 2);
+            LocalDate checkOut4 = LocalDate.of(2023, 6, 9);
+            Room room4 = roomDAO.getRoomById(19);
+            Customer customer4 = customerDAO.getCustomerById(42);
+            double price4 = (int) ChronoUnit.DAYS.between(checkIn4, checkOut4) * room4.getPricePerNight();
+            Booking booking4 = new Booking(checkIn4, checkOut4, price4, room4, customer4);
+            bookings.add(booking4);
+
+            LocalDate checkIn5 = LocalDate.of(2023, 6, 7);
+            LocalDate checkOut5 = LocalDate.of(2023, 6, 13);
+            Room room5 = roomDAO.getRoomById(21);
+            Customer customer5 = customerDAO.getCustomerById(45);
+            double price5 = (int) ChronoUnit.DAYS.between(checkIn5, checkOut5) * room5.getPricePerNight();
+            Booking booking5 = new Booking(checkIn5, checkOut5, price5, room5, customer5);
+            bookings.add(booking5);
+
+            for (Booking booking : bookings) {
+                bookingDAO.addBooking(booking);
+            }
+
+
+//            bookings = bookingDAO.getAllBookings();
+//            for (Booking booking: bookings) {
+//                bookingDAO.checkOutBooking(booking);
+//            }
+
+
+
+- create payments:
+
+            PaymentDAO paymentDAO = new PaymentDAO(sessionFactory);
+            BookingDAO bookingDAO = new BookingDAO(sessionFactory);
+            List<Payment> newPayments = new ArrayList<>();
+
+            LocalDate paymentDate1 = LocalDate.of(2023, 5, 16);
+            Booking booking1 = bookingDAO.getBookingById(61L);
+            double discount1 = 0;
+            double totalPrice1 = booking1.getPrice() - (booking1.getPrice() * discount1);
+            Payment payment1 = new Payment(paymentDate1, discount1, totalPrice1, booking1);
+            newPayments.add(payment1);
+
+            LocalDate paymentDate2 = LocalDate.of(2023, 4, 30);
+            Booking booking2 = bookingDAO.getBookingById(62L);
+            double discount2 = 0.05;
+            double totalPrice2 = booking2.getPrice() - (booking2.getPrice() * discount2);
+            Payment payment2 = new Payment(paymentDate2, discount2, totalPrice2, booking2);
+            newPayments.add(payment2);
+
+            LocalDate paymentDate3 = LocalDate.of(2023, 4, 28);
+            Booking booking3 = bookingDAO.getBookingById(63L);
+            double discount3 = 0;
+            double totalPrice3 = booking3.getPrice() - (booking3.getPrice() * discount3);
+            Payment payment3 = new Payment(paymentDate3, discount3, totalPrice3, booking3);
+            newPayments.add(payment3);
+
+            LocalDate paymentDate4 = LocalDate.of(2023, 5, 05);
+            Booking booking4 = bookingDAO.getBookingById(64L);
+            double discount4 = 0;
+            double totalPrice4 = booking4.getPrice() - (booking4.getPrice() * discount4);
+            Payment payment4 = new Payment(paymentDate4, discount4, totalPrice4, booking4);
+            newPayments.add(payment4);
+
+            LocalDate paymentDate5 = LocalDate.of(2023, 4, 21);
+            Booking booking5 = bookingDAO.getBookingById(65L);
+            double discount5 = 0.01;
+            double totalPrice5 = booking5.getPrice() - (booking5.getPrice() * discount5);
+            Payment payment5 = new Payment(paymentDate5, discount5, totalPrice5, booking5);
+            newPayments.add(payment5);
+
+            LocalDate paymentDate6 = LocalDate.of(2023, 4, 17);
+            Booking booking6 = bookingDAO.getBookingById(66L);
+            double discount6 = 0;
+            double totalPrice6 = booking6.getPrice() - (booking6.getPrice() * discount6);
+            Payment payment6 = new Payment(paymentDate6, discount6, totalPrice6, booking6);
+            newPayments.add(payment6);
+
+            LocalDate paymentDate7 = LocalDate.of(2023, 6, 4);
+            Booking booking7 = bookingDAO.getBookingById(67L);
+            double discount7 = 0;
+            double totalPrice7 = booking7.getPrice() - (booking7.getPrice() * discount7);
+            Payment payment7 = new Payment(paymentDate7, discount7, totalPrice7, booking7);
+            newPayments.add(payment7);
+
+            LocalDate paymentDate8 = LocalDate.of(2023, 6, 01);
+            Booking booking8 = bookingDAO.getBookingById(68L);
+            double discount8 = 0;
+            double totalPrice8 = booking8.getPrice() - (booking8.getPrice() * discount8);
+            Payment payment8 = new Payment(paymentDate8, discount8, totalPrice8, booking8);
+            newPayments.add(payment8);
+
+            LocalDate paymentDate9 = LocalDate.of(2023, 6, 03);
+            Booking booking9 = bookingDAO.getBookingById(69L);
+            double discount9 = 0;
+            double totalPrice9 = booking9.getPrice() - (booking9.getPrice() * discount9);
+            Payment payment9 = new Payment(paymentDate9, discount9, totalPrice9, booking9);
+            newPayments.add(payment9);
+
+            LocalDate paymentDate10 = LocalDate.of(2023, 5, 01);
+            Booking booking10 = bookingDAO.getBookingById(70L);
+            double discount10 = 0;
+            double totalPrice10 = booking10.getPrice() - (booking10.getPrice() * discount10);
+            Payment payment10 = new Payment(paymentDate10, discount10, totalPrice10, booking10);
+            newPayments.add(payment10);
+
+            LocalDate paymentDate11 = LocalDate.of(2023, 6, 06);
+            Booking booking11 = bookingDAO.getBookingById(71L);
+            double discount11 = 0.1;
+            double totalPrice11 = booking11.getPrice() - (booking11.getPrice() * discount11);
+            Payment payment11 = new Payment(paymentDate11, discount11, totalPrice11, booking11);
+            newPayments.add(payment11);
+
+            for (Payment payment : newPayments) {
+                paymentDAO.addPayment(payment);
+            } 
+
+
+
+
+
+
+
+
+
