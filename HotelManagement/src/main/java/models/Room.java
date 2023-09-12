@@ -34,6 +34,9 @@ public class Room {
     }
 
     public void setNumber(String number) {
+        if (number != null && number.isEmpty()) {
+            throw new IllegalArgumentException("Number cannot be empty");
+        }
         this.number = number;
     }
 
@@ -50,6 +53,9 @@ public class Room {
     }
 
     public void setPricePerNight(double pricePerNight) {
+        if (pricePerNight < 0) {
+            throw new IllegalArgumentException("Price per night must be non-negative");
+        }
         this.pricePerNight = pricePerNight;
     }
 
@@ -58,6 +64,9 @@ public class Room {
     }
 
     public void setStatus(String status) {
+        if (!isValidRoomStatus(status)) {
+            throw new IllegalArgumentException("Invalid room status");
+        }
         this.status = status;
     }
 
@@ -66,6 +75,9 @@ public class Room {
     }
 
     public void setDescription(String description) {
+        if (description != null && description.length() > 200) {
+            throw new IllegalArgumentException("Description cannot exceed 200 characters");
+        }
         this.description = description;
     }
 
@@ -75,5 +87,8 @@ public class Room {
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
+    }
+    private boolean isValidRoomStatus(String status) {
+        return status != null && (status.equals("available") || status.equals("booked"));
     }
 }

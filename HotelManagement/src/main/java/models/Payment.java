@@ -13,7 +13,7 @@ public class Payment {
     private LocalDate date;
     private double discount;
     private double totalPrice;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "bookingID")
     private Booking booking;
 
@@ -40,6 +40,9 @@ public class Payment {
     }
 
     public void setDiscount(double discount) {
+        if (discount <= 0 || discount >= 1) {
+            throw new IllegalArgumentException("Discount must be between 0 and 1");
+        }
         this.discount = discount;
     }
 

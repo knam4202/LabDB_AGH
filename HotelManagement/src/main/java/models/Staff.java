@@ -34,6 +34,9 @@ public class Staff {
     }
 
     public void setFirstName(String firstName) {
+        if (firstName != null && firstName.length() > 20) {
+            throw new IllegalArgumentException("First name cannot exceed 20 characters");
+        }
         this.firstName = firstName;
     }
 
@@ -42,6 +45,9 @@ public class Staff {
     }
 
     public void setLastName(String lastName) {
+        if (lastName != null && lastName.length() > 20) {
+            throw new IllegalArgumentException("Last name cannot exceed 20 characters");
+        }
         this.lastName = lastName;
     }
 
@@ -58,6 +64,9 @@ public class Staff {
     }
 
     public void setAddress(String address) {
+        if (address != null && address.length() > 100) {
+            throw new IllegalArgumentException("Address cannot exceed 100 characters");
+        }
         this.address = address;
     }
 

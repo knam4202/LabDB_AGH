@@ -35,6 +35,9 @@ public class Booking {
     }
 
     public void setCheckIn(LocalDate checkIn) {
+        if (checkIn != null && checkOut != null && checkIn.isAfter(checkOut)) {
+            throw new IllegalArgumentException("Check-in date cannot be after check-out date");
+        }
         this.checkIn = checkIn;
     }
 
@@ -43,6 +46,9 @@ public class Booking {
     }
 
     public void setCheckOut(LocalDate checkOut) {
+        if (checkOut != null && checkIn != null && checkOut.isBefore(checkIn)) {
+            throw new IllegalArgumentException("Check-out date cannot be before check-in date");
+        }
         this.checkOut = checkOut;
     }
 
@@ -51,6 +57,9 @@ public class Booking {
     }
 
     public void setPrice(double price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException("Price must be greater than zero");
+        }
         this.price = price;
     }
 

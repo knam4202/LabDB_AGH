@@ -10,6 +10,7 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private String location;
     private int rating;
@@ -28,6 +29,9 @@ public class Hotel {
     }
 
     public void setName(String name) {
+        if (name != null && name.length() > 50) {
+            throw new IllegalArgumentException("Name cannot exceed 50 characters");
+        }
         this.name = name;
     }
 
@@ -36,6 +40,9 @@ public class Hotel {
     }
 
     public void setLocation(String location) {
+        if (location != null && location.length() > 100) {
+            throw new IllegalArgumentException("Location cannot exceed 100 characters");
+        }
         this.location = location;
     }
 
@@ -44,6 +51,9 @@ public class Hotel {
     }
 
     public void setRating(int rating) {
+        if (rating < 1 || rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 1 and 5");
+        }
         this.rating = rating;
     }
 }
